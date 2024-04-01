@@ -16,6 +16,7 @@ import com.alibaba.nacos.api.config.annotation.NacosValue;
 @Controller
 @RequestMapping("config")
 @RefreshScope
+//自动刷新需要增加上这个注解
 public class ConfigController {
 
     @NacosValue(value = "${useLocalCache:false}", autoRefreshed = true)
@@ -23,6 +24,7 @@ public class ConfigController {
 
     @Value("${nickName}")
 //    @NacosValue(value = "${nickName}", autoRefreshed = true)
+    //NacosValue拿不到对应的值
     private String nickName;
 
     @Value("${spring.application.name}")
